@@ -45,6 +45,15 @@ public class SecuredControllerTest {
     }
 
     @Test
+    @WithMockUser(role = "MY_ROLE", countries = {"PL", "BE"})
+    public void byCountryBadRequestUnknownSourceCountry() throws Exception {
+        mockMvc
+                .perform(get("/api/v1/xx"))
+                .andExpect(status().isBadRequest())
+                .andReturn();
+    }
+
+    @Test
     @WithMockUser(role = "MY_ROLE", countries = {"DE", "BE"})
     public void byCountryAuthorized() throws Exception {
         mockMvc
