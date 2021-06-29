@@ -36,7 +36,7 @@ public class SecuredControllerTest {
     }
 
     @Test
-    @WithMockUser(role = "MY_ROLE", countries = {"PL", "BE"})
+    @WithMockUser(role = "MY_ROLE_1", countries = {"PL", "BE"})
     public void byCountryForbiddenMissingCountry() throws Exception {
         mockMvc
                 .perform(get("/api/v1/DE"))
@@ -45,7 +45,7 @@ public class SecuredControllerTest {
     }
 
     @Test
-    @WithMockUser(role = "MY_ROLE", countries = {"PL", "BE"})
+    @WithMockUser(role = "MY_ROLE_1", countries = {"PL", "BE"})
     public void byCountryBadRequestUnknownSourceCountry() throws Exception {
         mockMvc
                 .perform(get("/api/v1/xx"))
@@ -54,7 +54,7 @@ public class SecuredControllerTest {
     }
 
     @Test
-    @WithMockUser(role = "MY_ROLE", countries = {"DE", "BE"})
+    @WithMockUser(role = "MY_ROLE_1", countries = {"DE", "BE"})
     public void byCountryAuthorized() throws Exception {
         mockMvc
                 .perform(get("/api/v1/DE"))

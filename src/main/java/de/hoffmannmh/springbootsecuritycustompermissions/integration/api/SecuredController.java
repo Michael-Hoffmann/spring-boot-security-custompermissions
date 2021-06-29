@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SecuredController {
 
     @GetMapping
-    @PreAuthorize("hasPermission(#countryCode, 'MY_ROLE')")
+    @PreAuthorize("hasPermission(#countryCode, 'MY_ROLE_1')")
     public String byCountry(@PathVariable CountryCode countryCode, Authentication authentication) {
         return String.format("You're successfully authorized for country %s",countryCode);
     }

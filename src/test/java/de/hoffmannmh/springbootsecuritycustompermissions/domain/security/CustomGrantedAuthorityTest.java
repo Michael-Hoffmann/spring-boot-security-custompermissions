@@ -11,10 +11,10 @@ public class CustomGrantedAuthorityTest {
     @Test
     public void hasPermissionFor() {
 
-        CustomGrantedAuthority customGrantedAuthority = CustomGrantedAuthority.builder().role(CustomRole.MY_ROLE).countryCodes(Collections.singletonList(CountryCode.DE)).build();
-        Assertions.assertThat(customGrantedAuthority.hasPermissionFor(CustomRole.MY_ROLE,CountryCode.DE)).isTrue();
+        CustomGrantedAuthority customGrantedAuthority = CustomGrantedAuthority.builder().role(CustomRole.MY_ROLE_1).countryCodes(Collections.singletonList(CountryCode.DE)).build();
+        Assertions.assertThat(customGrantedAuthority.hasPermissionFor(CustomRole.MY_ROLE_1,CountryCode.DE)).isTrue();
         Assertions.assertThat(customGrantedAuthority.hasPermissionFor(CustomRole.UNKNOWN,CountryCode.DE)).isFalse();
-        Assertions.assertThat(customGrantedAuthority.hasPermissionFor(CustomRole.MY_ROLE,CountryCode.UNDEFINED)).isFalse();
+        Assertions.assertThat(customGrantedAuthority.hasPermissionFor(CustomRole.MY_ROLE_1,CountryCode.UNDEFINED)).isFalse();
 
     }
 
